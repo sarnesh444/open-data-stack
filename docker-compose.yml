@@ -17,3 +17,58 @@ services:
       - ./dbt_project:/usr/app
     depends_on:
       - trino
+
+  redis:
+    image: redis:7
+    container_name: superset_cache
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+  postgres:
+    image: postgres:15
+    container_name: superset_db
+    restart: unless-stopped
+    volumes:
+      - db_home:/var/lib/postgresql/data
+      - ./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_DB: superset
+      POSTGRES_USER: superset
+      POSTGRES_PASSWORD: superset
+
+  superset:
+    build: ./superset
+    container_name: superset
+    restart: unless-stopped
+    ports:
+      - "8088:8088"
+    depends_on: 
+      superset-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
+    environment:
+      SUPERSET_CONFIG_PATH: /app/superset_config.py
+    volumes:
+      - ./superset/superset_config.py:/app/superset_config.py
+
+  superset-init:
+    build: ./superset
+    container_name: superset_init
+    depends_on: 
+      - postgres
+      - redis
+    environment:
+      SUPERSET_CONFIG_PATH: /app/superset_config.py
+    volumes:
+      - ./superset/superset_config.py:/app/superset_config.py
+      - ./superset/docker-init.sh:/app/docker-init.sh
+    command: ["/app/docker-init.sh"]
+    user: "root"
+
+volumes:
+  redis_data:
+  db_home:

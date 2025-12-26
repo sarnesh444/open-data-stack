@@ -375,3 +375,55 @@ alter table "iceberg"."test_schema"."first_model__dbt_tmp" rename to "iceberg"."
 [0m19:50:11.348673 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7be04430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7bc9a830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7a33d180>]}
 [0m19:50:11.349074 [debug] [MainThread]: Flushing usage events
 [0m19:50:11.525841 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:16:14.393579 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa09e8760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9f7a47c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9f7a4760>]}
+
+
+============================== 20:16:14.400722 | 0869ded7-e676-4ced-9396-59ede9b083d3 ==============================
+[0m20:16:14.400722 [info ] [MainThread]: Running with dbt=1.11.2
+[0m20:16:14.401414 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'use_experimental_parser': 'False', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'introspect': 'True', 'quiet': 'False', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'log_format': 'default', 'printer_width': '80', 'no_print': 'None', 'log_path': '/usr/app/logs', 'warn_error': 'None', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'write_json': 'True', 'profiles_dir': '/usr/app', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'debug': 'False', 'log_cache_events': 'False', 'empty': 'None', 'partial_parse': 'True'}
+[0m20:16:14.410359 [info ] [MainThread]: dbt version: 1.11.2
+[0m20:16:14.411230 [info ] [MainThread]: python version: 3.10.19
+[0m20:16:14.411860 [info ] [MainThread]: python path: /usr/local/bin/python3.10
+[0m20:16:14.412409 [info ] [MainThread]: os info: Linux-6.11.11-linuxkit-aarch64-with-glibc2.41
+[0m20:16:14.487797 [info ] [MainThread]: Using profiles dir at /usr/app
+[0m20:16:14.488428 [info ] [MainThread]: Using profiles.yml file at /usr/app/profiles.yml
+[0m20:16:14.489108 [info ] [MainThread]: Using dbt_project.yml file at /usr/app/dbt_project.yml
+[0m20:16:14.489761 [info ] [MainThread]: adapter type: trino
+[0m20:16:14.490173 [info ] [MainThread]: adapter version: 1.10.0
+[0m20:16:14.622648 [info ] [MainThread]: Configuration:
+[0m20:16:14.623286 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m20:16:14.623997 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m20:16:14.624837 [info ] [MainThread]: Required dependencies:
+[0m20:16:14.625734 [debug] [MainThread]: Executing "git --help"
+[0m20:16:14.638403 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m20:16:14.639131 [debug] [MainThread]: STDERR: "b''"
+[0m20:16:14.639521 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m20:16:14.639916 [info ] [MainThread]: Connection:
+[0m20:16:14.640521 [info ] [MainThread]:   host: trino
+[0m20:16:14.640885 [info ] [MainThread]:   port: 8080
+[0m20:16:14.641335 [info ] [MainThread]:   user: dbt_user
+[0m20:16:14.641763 [info ] [MainThread]:   database: iceberg
+[0m20:16:14.642153 [info ] [MainThread]:   schema: test_schema
+[0m20:16:14.642550 [info ] [MainThread]:   cert: None
+[0m20:16:14.643019 [info ] [MainThread]:   prepared_statements_enabled: True
+[0m20:16:14.643637 [info ] [MainThread]: Registered adapter: trino=1.10.0
+[0m20:16:14.720178 [debug] [MainThread]: Acquiring new trino connection 'debug'
+[0m20:16:14.760351 [debug] [MainThread]: Using trino connection "debug"
+[0m20:16:14.760917 [debug] [MainThread]: On debug: select 1 as id
+[0m20:16:14.761289 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:16:14.761681 [warn ] [MainThread]: [[33mWARNING[0m]: SSL certificate validation is disabled by default. It is legacy behavior which will be changed in future releases. It is strongly advised to enable `require_certificate_validation` flag or explicitly set `cert` configuration to `True` for security reasons. You may receive an error after that if your SSL setup is incorrect.
+You may opt into the new behavior sooner by setting `flags.require_certificate_validation` to `True` in `dbt_project.yml`.
+Visit https://docs.getdbt.com/reference/global-configs/behavior-changes for more information.
+[0m20:16:14.762196 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'BehaviorChangeEvent', 'label': '0869ded7-e676-4ced-9396-59ede9b083d3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9f4aca30>]}
+[0m20:16:15.740179 [debug] [MainThread]: SQL status: SUCCESS in 0.979 seconds
+[0m20:16:15.742308 [debug] [MainThread]: On debug: Close
+[0m20:16:15.743023 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m20:16:15.743881 [info ] [MainThread]: [32mAll checks passed![0m
+[0m20:16:15.745942 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 1.4274935, "process_in_blocks": "0", "process_kernel_time": 0.384165, "process_mem_max_rss": "107556", "process_out_blocks": "1485", "process_user_time": 1.828549}
+[0m20:16:15.747639 [debug] [MainThread]: Command `dbt debug` succeeded at 20:16:15.746960 after 1.43 seconds
+[0m20:16:15.748622 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m20:16:15.749156 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa09e8760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9f40ffd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9f898640>]}
+[0m20:16:15.749723 [debug] [MainThread]: Flushing usage events
+[0m20:16:15.994958 [debug] [MainThread]: An error was encountered while trying to flush usage events
