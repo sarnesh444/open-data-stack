@@ -10,13 +10,20 @@ services:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_REGION=${AWS_REGION}
+    healthcheck:
+      test: ["CMD-SHELL", "trino --server localhost:8080 --user healthcheck --execute 'SELECT 1'"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
 
   dbt:
     build: ./dbt_project
     volumes:
       - ./dbt_project:/usr/app
     depends_on:
-      - trino
+      trino:
+        condition: service_healthy
 
   redis:
     image: redis:7

@@ -11,5 +11,5 @@ RUN pip install dbt-trino
 # Copy project files
 COPY . .
 
-# Keep container running for development
-CMD ["tail", "-f", "/dev/null"]
+# Run dbt commands
+CMD bash -c "dbt debug && dbt run && dbt test"
