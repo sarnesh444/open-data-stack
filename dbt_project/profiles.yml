@@ -1,0 +1,12 @@
+trino_profile:
+  target: dev
+  outputs:
+    dev:
+      type: trino
+      method: none
+      user: dbt_user
+      host: trino
+      port: 8080
+      catalog: iceberg
+      schema: test_schema
+      threads: 1

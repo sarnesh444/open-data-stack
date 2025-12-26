@@ -1,0 +1,1 @@
+select '1' as test_col_num, 'check' as test_col_str

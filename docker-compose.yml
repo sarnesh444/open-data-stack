@@ -10,3 +10,10 @@ services:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_REGION=${AWS_REGION}
+
+  dbt:
+    build: ./dbt_project
+    volumes:
+      - ./dbt_project:/usr/app
+    depends_on:
+      - trino
